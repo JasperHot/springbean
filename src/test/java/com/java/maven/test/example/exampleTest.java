@@ -1,17 +1,22 @@
 package com.java.maven.test.example;
 
+
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
-/**
- * Hello world!
- *
- */
-public class example 
-{
+public class exampleTest {
 
-    public static void main( String[] args )
-    {
+    @BeforeClass
+    public void beforeClass() {
+        System.out.println("this is before class");
+    }
+
+    @Test
+    public void TestNgLearn() {
+        System.out.println("this is TestNG test case");
     	try{
     		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
     			"springModule.xml");
@@ -23,6 +28,11 @@ public class example
     	}finally{
     		System.out.println("End!");
     	}
+    }
+
+    @AfterClass
+    public void afterClass() {
+        System.out.println("this is after class");
     }
 
 }

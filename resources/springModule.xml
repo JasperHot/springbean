@@ -5,6 +5,7 @@
 
 	<bean id="helloBean" class="com.java.maven.test.example.Person">
 		<property name="name" value="wukong" />
+		<property name="age" value="12" />
 	</bean>
 
 </beans>

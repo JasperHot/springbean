@@ -6,6 +6,13 @@
 	<bean id="helloBean" class="com.java.maven.test.example.Person">
 		<property name="name" value="wukong" />
 		<property name="age" value="12" />
+		<property name="hometown" value="HuaGuoShan" />
+		<property name="brother" ref="secondBean"/>
 	</bean>
-
+	<bean id="secondBean" class="com.java.maven.test.example.Person">
+		<property name="name" value="bajie" />
+		<property name="age" value="10" />
+		<property name="hometown" value="GaoLaoZhuang" />
+		<property name="brother" ref="helloBean"/>
+	</bean>
 </beans>

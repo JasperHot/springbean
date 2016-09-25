@@ -16,7 +16,7 @@ public class example
     		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
     			"springModule.xml");
     	    Person obj = (Person) context.getBean("helloBean",Person.class);
-    	    System.out.println("who is got: "+obj.getName()+" age: "+obj.getAge());
+    	    System.out.println("who is got: "+obj.getName()+" age: "+obj.getAge()+" home: "+obj.hometwon);
     	    context.close();
     	}catch(Exception e){
     		System.out.println(e.toString());

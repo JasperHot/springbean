@@ -21,7 +21,9 @@ public class exampleTest {
     		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
     			"springModule.xml");
     	    Person obj = (Person) context.getBean("helloBean",Person.class);
-    	    System.out.println("who is got: "+obj.getName()+" age: "+obj.getAge());
+    	    System.out.println("who is got: "+obj.getName()+" age: "+obj.getAge()+" home: "+obj.hometwon+" brother: "+obj.brother.getName());
+    	    Person obj2 = (Person) context.getBean("secondBean",Person.class);
+    	    System.out.println("who is got: "+obj2.getName()+" age: "+obj2.getAge()+" home: "+obj2.hometwon+" brother: "+obj2.brother.getName());
     	    context.close();
     	}catch(Exception e){
     		System.out.println(e.toString());

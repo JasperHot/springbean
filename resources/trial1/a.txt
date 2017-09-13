@@ -1,0 +1,4 @@
+hello
+world
+asia
+europe

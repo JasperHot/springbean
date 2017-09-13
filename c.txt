@@ -1,0 +1,6 @@
+hello
+good
+world
+bye
+asia
+europe

@@ -1,7 +1,9 @@
 package com.java.maven.test.trial1;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class BlockingDeque {
@@ -11,13 +13,26 @@ public class BlockingDeque {
 	public static void main(String[] args) {
 		ExecutorService executorService = Executors.newFixedThreadPool(2);
 
-		executorService.submit(new Producer("producer1"));
-		executorService.submit(new Producer("producer2"));
-		executorService.submit(new Producer("producer3"));
-		executorService.submit(new Consumer("consumer1"));
-		executorService.submit(new Consumer("consumer2"));
-		executorService.submit(new Consumer("consumer3"));
+		Future<?> p1 = executorService.submit(new Producer("producer1"));
+		Future<?> p2 = executorService.submit(new Producer("producer2"));
+		Future<?> p3 = executorService.submit(new Producer("producer3"));
+		Future<?> c1 = executorService.submit(new Consumer("consumer1"));
+		Future<?> c2 = executorService.submit(new Consumer("consumer2"));
+		Future<?> c3 = executorService.submit(new Consumer("consumer3"));
+		executorService.shutdown();
 		System.out.println("Main is finished");
+		try {
+			if (p1.get() == null) {
+				System.out.println("Main producer1 is finished");
+			}
+			if (c1.get() == null) {
+				System.out.println("Main consumer1 is finished");
+			}
+		} catch (InterruptedException | ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	static class Producer implements Runnable {

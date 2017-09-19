@@ -17,6 +17,7 @@ public class NoBlockQueue {
 		executorService.submit(new Consumer("consumer2"));
 		executorService.submit(new Consumer("consumer3"));
 		System.out.println("Main is finished");
+		executorService.shutdown();
 	}
 
 	static class Producer implements Runnable {

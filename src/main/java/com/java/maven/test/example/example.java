@@ -1,10 +1,10 @@
 package com.java.maven.test.example;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Hello world!
@@ -59,11 +59,16 @@ public class example {
 
 	public static void main(String[] args) {
 		try {
+			//System.setProperty("age2", "9");
+			//System.setProperty("hometown2", "Shanghai");
 			AbstractApplicationContext context = new ClassPathXmlApplicationContext(
 					"springModule.xml");
 			Person obj = (Person) context.getBean("helloBean", Person.class);
 			System.out.println("who is got: " + obj.getName() + " age: "
 					+ obj.getAge() + " home: " + obj.hometwon);
+			Person obj2 = (Person) context.getBean("secondBean", Person.class);
+			System.out.println("who is got: " + obj2.getName() + " age: "
+					+ obj2.getAge() + " home: " + obj2.hometwon);
 			context.close();
 			exception1();
 		} catch (Exception e) {
